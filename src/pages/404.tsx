@@ -19,9 +19,9 @@ const codeStyles = {
   color: "#8A6534",
   padding: 4,
   backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
+  fontSize: "20px",
   borderRadius: 4,
-}
+};
 
 const NotFoundPage: React.FC<PageProps> = () => {
   return (
