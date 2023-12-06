@@ -1,5 +1,4 @@
 import * as styles from "./Content.module.css";
-import { BareLogoImage } from "./bruggen.logo";
 import React, { PropsWithChildren } from "react";
 
 export const Header: React.FC<PropsWithChildren> = (props) => (
@@ -9,8 +8,8 @@ export const Header: React.FC<PropsWithChildren> = (props) => (
 export const Logo: React.FC<PropsWithChildren> = (props) => (
   <div className={styles.Logo} {...props} />
 );
-export const LogoImage: React.FC<PropsWithChildren> = (props) => (
-  <BareLogoImage className={styles.LogoImage} {...props} />
+export const LogoImage: React.FC<PropsWithChildren> = () => (
+  <img className={styles.LogoImage} src="/images/bruggen.logo.svg" />
 );
 export const LogoTitle: React.FC<PropsWithChildren> = (props) => (
   <h1 className={styles.LogoTitle} {...props} />
@@ -18,9 +17,9 @@ export const LogoTitle: React.FC<PropsWithChildren> = (props) => (
 export const Introduction: React.FC<PropsWithChildren> = (props) => (
   <div className={styles.Introduction} {...props} />
 );
-export const ContactButton: React.FC<PropsWithChildren> = (props) => (
-  <a className={styles.ContactButton} {...props} />
-);
+export const ContactButton: React.FC<PropsWithChildren<{ href: string }>> = (
+  props
+) => <a className={styles.ContactButton} {...props} />;
 export const Section: React.FC<PropsWithChildren> = (props) => (
   <section className={styles.Section} {...props} />
 );

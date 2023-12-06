@@ -8,9 +8,9 @@ export const Resume: React.FC<PropsWithChildren> = (props) => (
   <dl {...props} className={styles.Resume} />
 );
 
-export const ResumeDownload: React.FC<PropsWithChildren> = (props) => (
-  <a {...props} className={styles.ResumeDownload} />
-);
+export const ResumeDownload: React.FC<
+  PropsWithChildren<{ download: boolean; href: string }>
+> = (props) => <a {...props} className={styles.ResumeDownload} />;
 
 export const ResumeHeader: React.FC<PropsWithChildren> = (props) => (
   <header {...props} className={styles.ResumeHeader} />

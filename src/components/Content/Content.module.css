@@ -27,13 +27,13 @@
     }
 }
 
-.LogoImage {
+.Logo svg {
     width: 100%;
     height: auto;
 }
 
 @media screen and (min-width: 1024px) {
-    .LogoImage {
+    .LogoImage svg {
         width: 256px;
         height: auto;
     }

@@ -1,21 +1,11 @@
 import React from "react";
 import * as styles from "./Greeting.module.css";
-
-const getText = () => {
-  // const date = new Date();
-  // const timeInHours = date.getHours();
-  return "Good day!";
-
-  // if (timeInHours < 12) {
-  //   return "Good morning!";
-  // }
-  // if (timeInHours >= 12 && timeInHours < 18) {
-  //   return "Good day!";
-  // }
-
-  // return "Good evening!";
-};
+import { GreetingText } from "./GreetingText";
 
 export const Greeting = () => {
-  return <h2 className={styles.Greeting}>{getText()}</h2>;
+  return (
+    <h2 className={styles.Greeting}>
+      <GreetingText />
+    </h2>
+  );
 };
