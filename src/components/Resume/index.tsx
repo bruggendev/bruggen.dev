@@ -2,7 +2,6 @@ import React from "react";
 import { PropsWithChildren } from "react";
 import styled from "styled-components";
 import { SectionHeader, SectionTitle } from "../Content";
-import DownloadIcon from "./download.icon.svg";
 import media from "css-in-js-media";
 
 export const Resume = styled.dl`
@@ -140,7 +139,7 @@ export const ResumeDownload = styled.a`
   color: var(--text-color);
   text-decoration: underline;
 
-  background-image: url("/download.icon.svg");
+  background-image: url("/images/download.icon.svg");
   background-repeat: no-repeat;
   background-size: 20px;
   padding-left: 30px;

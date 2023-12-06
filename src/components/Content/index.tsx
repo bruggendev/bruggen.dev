@@ -87,11 +87,12 @@ export const ContactButton = styled.a`
 `;
 
 export const Section = styled.section<{
-  backgroundcolor?: string;
-  color?: string;
+  $backgroundColor?: string;
+  $color?: string;
 }>`
-  ${({ color }) => (color ? `--text-color: ${color};` : "")};
-  --background-color: ${({ backgroundcolor }) => backgroundcolor || "inherit"};
+  ${({ $color }) => ($color ? `--text-color: ${$color};` : "")};
+  --background-color: ${({ $backgroundColor }) =>
+    $backgroundColor || "inherit"};
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -48,12 +48,12 @@ const IndexPage: React.FC<PageProps> = () => {
         </Introduction>
       </Header>
 
-      <Section backgroundcolor="#2556A2" color="white">
+      <Section $backgroundColor="#2556A2" $color="white">
         <ResumeHeader>
           <ResumeTitle>Experience</ResumeTitle>
           <ResumeDownload
             download
-            href="/Jesse Dijkstra - Fullstack Developer - Resume.pdf"
+            href="/downloads/Jesse Dijkstra - Fullstack Developer - Resume.pdf"
           >
             Download resume
           </ResumeDownload>
