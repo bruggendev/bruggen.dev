@@ -13,7 +13,6 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
-    "gatsby-plugin-image",
     "gatsby-plugin-postcss",
     {
       resolve: "gatsby-plugin-manifest",
