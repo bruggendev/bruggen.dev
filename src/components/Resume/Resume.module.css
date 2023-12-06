@@ -71,10 +71,10 @@
         border-radius: 34px;
     }
 
-    .ResumeItemHeader:first-of-type::before {
-        box-shadow: inset 0px 0px 0px 5px var(--background-color);
-        background-color: var(--text-color);
-    }
+}
+.ResumeItemHeader:first-of-type::before {
+    box-shadow: inset 0px 0px 0px 5px var(--background-color);
+    background-color: var(--text-color);
 }
 
 .ResumeItemHeaderPeriod {
