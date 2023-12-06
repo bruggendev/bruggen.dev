@@ -1,14 +1,6 @@
 "use client";
 import React from "react";
-import styled from "styled-components";
-import media from "css-in-js-media";
-
-const Greeting = styled.h2`
-  display: none;
-  ${media(">desktop")} {
-    display: block;
-  }
-`;
+import * as styles from "./Greeting.module.css";
 
 const getText = () => {
   const date = new Date();
@@ -24,6 +16,6 @@ const getText = () => {
   return "Good evening!";
 };
 
-export default () => {
-  return <Greeting>{getText()}</Greeting>;
+export const Greeting = () => {
+  return <h2 className={styles.Greeting}>{getText()}</h2>;
 };

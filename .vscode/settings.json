@@ -2,5 +2,6 @@
   "files.autoSave": "afterDelay",
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "modificationsIfAvailable",
-  "notebook.formatOnSave.enabled": true
+  "notebook.formatOnSave.enabled": true,
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

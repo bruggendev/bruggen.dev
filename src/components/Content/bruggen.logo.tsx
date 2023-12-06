@@ -1,12 +1,12 @@
 import React from "react";
-export default ({ ...props }) => (
+export const BareLogoImage: React.FC<{ className: string }> = ({ className }) => (
   <svg
     width="256"
     height="410"
     viewBox="0 0 256 410"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    {...props}
+    className={className}
   >
     <path
       fillRule="evenodd"

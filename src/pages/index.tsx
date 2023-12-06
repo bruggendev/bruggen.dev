@@ -1,16 +1,15 @@
 import React from "react";
 import type { HeadFC, PageProps } from "gatsby";
-import Page from "../components/Page";
+import { Page } from "../components/Page/Page";
 import {
   ContactButton,
   Introduction,
-  Section,
   Logo,
   Header,
   SectionContent,
   LogoImage,
   LogoTitle,
-} from "../components/Content";
+} from "../components/Content/Content";
 import { Availability } from "../components/Availability/Availability";
 import {
   Resume,
@@ -20,9 +19,10 @@ import {
   ResumeItem,
   ResumeItemContent,
   ResumeItemHeader,
+  ResumeSection,
   ResumeTitle,
-} from "../components/Resume";
-import Greeting from "../components/Greeting";
+} from "../components/Resume/Resume";
+import { Greeting } from "../components/Greeting/Greeting";
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
@@ -48,7 +48,7 @@ const IndexPage: React.FC<PageProps> = () => {
         </Introduction>
       </Header>
 
-      <Section $backgroundColor="#2556A2" $color="white">
+      <ResumeSection>
         <ResumeHeader>
           <ResumeTitle>Experience</ResumeTitle>
           <ResumeDownload
@@ -208,7 +208,7 @@ const IndexPage: React.FC<PageProps> = () => {
             </ResumeItem>
 
             <ResumeItem>
-              <ResumeItemHeader from="Ferbruary 2013" to="August 2016">
+              <ResumeItemHeader from="February 2013" to="August 2016">
                 <strong>Lead Frontend Developer</strong> at{" "}
                 <strong>Blendle</strong>
               </ResumeItemHeader>
@@ -243,7 +243,7 @@ const IndexPage: React.FC<PageProps> = () => {
             </ResumeItem>
           </Resume>
         </SectionContent>
-      </Section>
+      </ResumeSection>
     </Page>
   );
 };
