@@ -37,8 +37,8 @@
     background: linear-gradient(transparent, var(--background-color));
     height: 80px;
     position: absolute;
-    left: -40px;
-    right: -40px;
+    left: -37px;
+    right: 0;
     bottom: 0;
 }
 
