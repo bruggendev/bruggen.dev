@@ -1,39 +1,33 @@
-import React from "react";
-import { PropsWithChildren } from "react";
+import { ParentComponent } from "solid-js";
 import * as styles from "./Resume.module.css";
 
-type ResumeItemHeaderProps = PropsWithChildren<{ from: string; to: string }>;
-
-export const Resume: React.FC<PropsWithChildren> = (props) => (
-  <dl {...props} className={styles.Resume} />
+export const Resume: ParentComponent = (props) => (
+  <dl {...props} class={styles.Resume} />
 );
 
-export const ResumeDownload: React.FC<
-  PropsWithChildren<{ download: boolean; href: string }>
-> = (props) => <a {...props} className={styles.ResumeDownload} />;
-
-export const ResumeHeader: React.FC<PropsWithChildren> = (props) => (
-  <header {...props} className={styles.ResumeHeader} />
+export const ResumeDownload: ParentComponent<{ href: string }> = (props) => (
+  <a download {...props} class={styles.ResumeDownload} />
 );
 
-export const ResumeHilights: React.FC<PropsWithChildren> = (props) => (
-  <h2 {...props} className={styles.ResumeHilights} />
+export const ResumeHeader: ParentComponent = (props) => (
+  <header {...props} class={styles.ResumeHeader} />
 );
 
-export const ResumeItem: React.FC<PropsWithChildren> = (props) => (
-  <>{props.children}</>
+export const ResumeHilights: ParentComponent = (props) => (
+  <h2 {...props} class={styles.ResumeHilights} />
 );
 
-export const ResumeItemContent: React.FC<PropsWithChildren> = (props) => (
-  <dd {...props} className={styles.ResumeItemContent} />
+export const ResumeItem: ParentComponent = (props) => <>{props.children}</>;
+
+export const ResumeItemContent: ParentComponent = (props) => (
+  <dd {...props} class={styles.ResumeItemContent} />
 );
 
-export const ResumeItemHeader = ({
-  from,
-  to,
-  children,
-}: ResumeItemHeaderProps) => (
-  <dt className={styles.ResumeItemHeader}>
+export const ResumeItemHeader: ParentComponent<{
+  from: string;
+  to: string;
+}> = ({ from, to, children }) => (
+  <dt class={styles.ResumeItemHeader}>
     <ResumeItemHeaderPeriod>
       <time>{from}</time> - <time>{to}</time>
     </ResumeItemHeaderPeriod>
@@ -41,18 +35,18 @@ export const ResumeItemHeader = ({
   </dt>
 );
 
-export const ResumeItemHeaderPeriod: React.FC<PropsWithChildren> = (props) => (
-  <h4 {...props} className={styles.ResumeItemHeaderPeriod} />
+export const ResumeItemHeaderPeriod: ParentComponent = (props) => (
+  <h4 {...props} class={styles.ResumeItemHeaderPeriod} />
 );
 
-export const ResumeItemHeaderPosition: React.FC<PropsWithChildren> = (
-  props
-) => <h3 {...props} className={styles.ResumeItemHeaderPosition} />;
-
-export const ResumeSection: React.FC<PropsWithChildren> = (props) => (
-  <section {...props} className={styles.ResumeSection} />
+export const ResumeItemHeaderPosition: ParentComponent = (props) => (
+  <h3 {...props} class={styles.ResumeItemHeaderPosition} />
 );
 
-export const ResumeTitle: React.FC<PropsWithChildren> = (props) => (
-  <h2 {...props} className={styles.ResumeTitle} />
+export const ResumeSection: ParentComponent = (props) => (
+  <section {...props} class={styles.ResumeSection} />
+);
+
+export const ResumeTitle: ParentComponent = (props) => (
+  <h2 {...props} class={styles.ResumeTitle} />
 );

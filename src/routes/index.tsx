@@ -1,5 +1,4 @@
-import React from "react";
-import type { HeadFC, PageProps } from "gatsby";
+import { Title } from "solid-start";
 import { Page } from "../components/Page/Page";
 import {
   ContactButton,
@@ -24,7 +23,7 @@ import {
 } from "../components/Resume/Resume";
 import { Greeting } from "../components/Greeting/Greeting";
 
-const IndexPage: React.FC<PageProps> = () => {
+export default function Home() {
   return (
     <Page>
       <Availability>
@@ -51,10 +50,7 @@ const IndexPage: React.FC<PageProps> = () => {
       <ResumeSection>
         <ResumeHeader>
           <ResumeTitle>Experience</ResumeTitle>
-          <ResumeDownload
-            download
-            href="/downloads/Jesse Dijkstra - Fullstack Developer - Resume.pdf"
-          >
+          <ResumeDownload href="/downloads/Jesse Dijkstra - Fullstack Developer - Resume.pdf">
             Download resume
           </ResumeDownload>
         </ResumeHeader>
@@ -246,10 +242,4 @@ const IndexPage: React.FC<PageProps> = () => {
       </ResumeSection>
     </Page>
   );
-};
-
-export const Head: HeadFC = () => (
-  <title>Bruggen - Fullstack & Frontend Development</title>
-);
-
-export default IndexPage;
+}

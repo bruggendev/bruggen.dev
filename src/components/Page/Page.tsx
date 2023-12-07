@@ -1,7 +1,5 @@
-import React, { PropsWithChildren } from "react";
+import { ParentComponent } from "solid-js";
 import "./Body.css";
 import "./Fonts.css";
 
-export const Page: React.FC<PropsWithChildren> = ({ children }) => (
-  <>{children}</>
-);
+export const Page: ParentComponent = ({ children }) => <>{children}</>;

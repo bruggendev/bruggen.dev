@@ -1,6 +1,6 @@
+import { ParentComponent } from "solid-js";
 import * as styles from "./Availability.module.css";
-import React, { PropsWithChildren } from "react";
 
-export const Availability: React.FC<PropsWithChildren> = (props) => (
-  <p className={styles.Availability} {...props} />
+export const Availability: ParentComponent = (props) => (
+  <p class={styles.Availability} {...props} />
 );

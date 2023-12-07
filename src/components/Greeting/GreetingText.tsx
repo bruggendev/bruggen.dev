@@ -1,6 +1,3 @@
-"use client";
-import React from "react";
-
 const getText = () => {
   const date = new Date();
   const timeInHours = date.getHours();
