@@ -1,0 +1,9 @@
+.Greeting {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .Greeting {
+        display: block;
+    }
+}
