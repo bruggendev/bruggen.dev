@@ -6,7 +6,6 @@ import {
   Logo,
   Header,
   SectionContent,
-  LogoImage,
   LogoTitle,
 } from "../components/Content/Content";
 import { Availability } from "../components/Availability/Availability";
@@ -22,6 +21,7 @@ import {
   ResumeTitle,
 } from "../components/Resume/Resume";
 import { Greeting } from "../components/Greeting/Greeting";
+import LogoImage from "~/components/LogoImage";
 
 export default function Home() {
   return (
