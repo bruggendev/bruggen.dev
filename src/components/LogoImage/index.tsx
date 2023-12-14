@@ -64,7 +64,7 @@ export default function LogoImage() {
     let frame = requestAnimationFrame(loop);
     let targetShape: SVGPath | RectanglePath | undefined;
 
-    canvasElement.addEventListener("mousedown", (event: MouseEvent) => {
+    window.addEventListener("mousedown", (event: MouseEvent) => {
       const [x, y] = translatePosition(
         event.clientX,
         event.clientY,
@@ -82,7 +82,7 @@ export default function LogoImage() {
       targetShape = undefined;
     });
 
-    canvasElement.addEventListener("mousemove", (event) => {
+    window.addEventListener("mousemove", (event) => {
       if (targetShape && canvasElement) {
         const [scaleX, scaleY] = getScaleForCanvas(canvasElement);
         const movementX = event.movementX * scaleX;
