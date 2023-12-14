@@ -135,7 +135,7 @@ export default function Home() {
               </ResumeItemContent>
             </ResumeItem>
             <ResumeItem>
-              <ResumeItemHeader from="January 2018" to="February 2018">
+              <ResumeItemHeader from="January 2018" to="February 2020">
                 <strong>Senior Fullstack Developer</strong> at{" "}
                 <strong>DPG Media</strong>
               </ResumeItemHeader>
