@@ -25,23 +25,24 @@ function createShapes(svgElement: SVGElement): Shapes {
   });
 }
 
-function translateMousePosition(event: MouseEvent, canvas: HTMLCanvasElement) {
+function translatePosition(x: number, y: number, canvas: HTMLCanvasElement) {
   const rect = canvas.getBoundingClientRect();
   const scaleX = canvas.width / rect.width;
   const scaleY = canvas.height / rect.height;
 
-  return [
-    (event.clientX - rect.left) * scaleX,
-    (event.clientY - rect.top) * scaleY,
-  ];
+  return [(x - rect.left) * scaleX, (y - rect.top) * scaleY];
+}
+
+function getScaleForCanvas(canvas: HTMLCanvasElement): [number, number] {
+  const rect = canvas.getBoundingClientRect();
+  const scaleX = canvas.width / rect.width;
+  const scaleY = canvas.height / rect.height;
+
+  return [scaleX, scaleY];
 }
 
 function findShapeByPoint(shapes: Shapes, [x, y]: [number, number]) {
   return shapes.find((shape) => shape.inInside(x, y));
-}
-
-function findShapesByPath(shapes: Shapes, boundaries: Boundaries) {
-  return shapes.filter((shape) => shape.isOverlapping(boundaries));
 }
 
 export default function LogoImage() {
@@ -64,50 +65,38 @@ export default function LogoImage() {
     let targetShape: SVGPath | RectanglePath | undefined;
 
     canvasElement.addEventListener("mousedown", (event: MouseEvent) => {
-      const [x, y] = translateMousePosition(event, canvasElement);
+      const [x, y] = translatePosition(
+        event.clientX,
+        event.clientY,
+        canvasElement
+      );
+
       const shape = findShapeByPoint(shapes, [x, y]);
 
       if (shape) {
-        shape.transformOriginX = x - shape.x;
-        shape.transformOriginY = y - shape.y;
-
         targetShape = shape;
-        shape.highlight = true;
       }
     });
 
     window.addEventListener("mouseup", (_event) => {
-      if (targetShape) {
-        targetShape.highlight = false;
-      }
-
       targetShape = undefined;
     });
 
     canvasElement.addEventListener("mousemove", (event) => {
       if (targetShape && canvasElement) {
-        const [x, y] = translateMousePosition(event, canvasElement);
+        const [scaleX, scaleY] = getScaleForCanvas(canvasElement);
+        const movementX = event.movementX * scaleX;
+        const movementY = event.movementY * scaleY;
 
-        const path = targetShape.simulate(x, y, [
-          0,
-          canvasElement.width,
-          canvasElement.height,
-          0,
-        ]);
+        targetShape.x = Math.min(
+          canvasElement.width - targetShape.width,
+          Math.max(0, targetShape.x + movementX)
+        );
 
-        const conflictingShapes = findShapesByPath(shapes, path);
-
-        conflictingShapes.forEach((conflictingShape) => {
-          if (conflictingShape === targetShape) return;
-          conflictingShape.error = true;
-        });
-
-        // targetShape.move(x, y, [
-        //   0,
-        //   canvasElement.width,
-        //   canvasElement.height,
-        //   0,
-        // ]);
+        targetShape.y = Math.min(
+          canvasElement.height - targetShape.height,
+          Math.max(0, targetShape.y + movementY)
+        );
       }
     });
 
@@ -119,7 +108,7 @@ export default function LogoImage() {
       context.save();
       context.clearRect(0, 0, canvasElement.width, canvasElement.height);
 
-      shapes.forEach((shape, index) => shape.draw(context, index));
+      shapes.forEach((shape) => shape.draw(context));
 
       context.restore();
     }
