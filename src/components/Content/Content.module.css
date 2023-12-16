@@ -37,6 +37,7 @@
 
 @media (min-width: 1024px) {
   .LogoTitle {
+    line-height: 54px;
     font-size: 72px;
   }
 }

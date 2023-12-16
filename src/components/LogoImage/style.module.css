@@ -1,10 +1,27 @@
 .LogoImage {
+  display: inline-block;
   width: 100%;
   height: auto;
 }
 
+.LogoImage canvas {
+  width: 100%;
+}
+
+svg.LogoImage {
+ cursor: pointer;
+}
+
+.display {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
 @media screen and (min-width: 1024px) {
-  .LogoImage img {
+  .LogoImage {
     width: 256px;
     height: auto;
   }

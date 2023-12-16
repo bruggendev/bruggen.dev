@@ -1,12 +1,6 @@
 import styles from "./style.module.css";
-
-type Props = {
-  ref: SVGSVGElement | ((el: SVGSVGElement) => void) | undefined;
-};
-
-export default ({ ref }: Props) => (
+export default () => (
   <svg
-    ref={ref}
     class={styles.LogoImage}
     width="256"
     height="410"

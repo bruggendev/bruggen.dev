@@ -11,6 +11,15 @@ dependencies:
   '@solidjs/router':
     specifier: ^0.8.3
     version: 0.8.4(solid-js@1.8.7)
+  matter-js:
+    specifier: ^0.19.0
+    version: 0.19.0
+  pathseg:
+    specifier: ^1.2.1
+    version: 1.2.1
+  poly-decomp-es:
+    specifier: ^0.4.2
+    version: 0.4.2
   solid-js:
     specifier: ^1.8.5
     version: 1.8.7
@@ -19,6 +28,9 @@ dependencies:
     version: 0.3.10(@solidjs/meta@0.29.1)(@solidjs/router@0.8.4)(solid-js@1.8.7)(solid-start-static@0.3.10)(vite@4.5.1)
 
 devDependencies:
+  '@types/matter-js':
+    specifier: ^0.19.5
+    version: 0.19.5
   '@types/node':
     specifier: ^18.17.5
     version: 18.19.3
@@ -1710,6 +1722,10 @@ packages:
   /@types/estree@1.0.5:
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
 
+  /@types/matter-js@0.19.5:
+    resolution: {integrity: sha512-pTVB5krRGb01hr8L6BJqWGoSriqUbbvJ9Fd0Qp0eAOE//w/lFvkaVHkVB8J3wXr9U3lZDzmAjJPPQn7x4wzbWg==}
+    dev: true
+
   /@types/ms@0.7.34:
     resolution: {integrity: sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==}
 
@@ -2804,6 +2820,10 @@ packages:
     dev: true
     optional: true
 
+  /matter-js@0.19.0:
+    resolution: {integrity: sha512-v2huwvQGOHTGOkMqtHd2hercCG3f6QAObTisPPHg8TZqq2lz7eIY/5i/5YUV8Ibf3mEioFEmwibcPUF2/fnKKQ==}
+    dev: false
+
   /merge-anything@5.1.7:
     resolution: {integrity: sha512-eRtbOb1N5iyH0tkQDAoQ4Ipsp/5qSR79Dzrz8hEPxRX10RWWR/iQXdoKmBSRCThY1Fh5EhISDtpSc93fpxUniQ==}
     engines: {node: '>=12.13'}
@@ -2996,6 +3016,10 @@ packages:
   /path-parse@1.0.7:
     resolution: {integrity: sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==}
 
+  /pathseg@1.2.1:
+    resolution: {integrity: sha512-LtvemzPvcGamWBbNWJaIrgfUzpynXfwYrP6SSFVRhNHVcCaq6SVm4kRGJNuIV8qzBKgCN3fEXFZZ16YETFIXoA==}
+    dev: false
+
   /picocolors@1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
 
@@ -3009,6 +3033,10 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /poly-decomp-es@0.4.2:
+    resolution: {integrity: sha512-akjZkaTeyfECMNkMqv0g9gFiU2HjpZ5ubJA/aczw1ILdgWQbv1OPwCi05/9JbY2GnGpjm9k85Jdbd/j/p/lg/g==}
+    dev: false
 
   /postcss-load-config@3.1.4(postcss@8.4.32):
     resolution: {integrity: sha512-6DiM4E7v4coTE4uzA8U//WhtPwyhiim3eyjEMFCnUpzbrkK9wJHgKDT2mR+HbtSrd/NubVaYTOpSpjUl8NQeRg==}

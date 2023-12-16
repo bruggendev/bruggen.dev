@@ -1,4 +1,3 @@
-import { Title } from "solid-start";
 import { Page } from "../components/Page/Page";
 import {
   ContactButton,
