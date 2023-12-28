@@ -26,10 +26,7 @@ import { Greeting } from "../components/Greeting/Greeting";
 export default function Home() {
   return (
     <Page>
-      <Availability>
-        Available from January 1st 2024 ·{" "}
-        <a href="mailto:contact@bruggen.dev">contact me</a>
-      </Availability>
+      <Availability />
       <Header>
         <Logo>
           <LogoImage />
@@ -57,21 +54,40 @@ export default function Home() {
         <SectionContent>
           <Resume>
             <ResumeItem>
+              <ResumeItemHeader from="January 2024" to="Current">
+                <strong>Fullstack Developer (Freelance)</strong>{" "}
+                <strong>Non-Disclosure Agreement</strong>
+              </ResumeItemHeader>
+              <ResumeItemContent>
+                <p>
+                  Fullstack developer for a scaleup that builds a performance
+                  management platform with over 50.000 users.
+                </p>
+                <ResumeHilights>Technologies:</ResumeHilights>
+                <ul>
+                  <li>React</li>
+                  <li>Typescript</li>
+                </ul>
+              </ResumeItemContent>
+            </ResumeItem>
+            <ResumeItem>
               <ResumeItemHeader from="April 2023" to="Current">
-                <strong>Frontend Developer (Freelance)</strong> at{" "}
+                <strong>Fullstack Developer (Freelance)</strong> at{" "}
                 <strong>UMC Utrecht</strong>
               </ResumeItemHeader>
               <ResumeItemContent>
                 <p>
-                  Freelance frontend developer at UMC Utrecht to build a
-                  consolidated search for laboratories to offer provisions from
-                  six different labs.
+                  Fullstack developer at UMC Utrecht to build a consolidated
+                  search for laboratories to offer provisions from six different
+                  labs.
                 </p>
                 <ResumeHilights>Technologies:</ResumeHilights>
                 <ul>
                   <li>React</li>
                   <li>.NET Core</li>
+                  <li>Vite</li>
                   <li>SASS</li>
+                  <li>Typescript</li>
                 </ul>
               </ResumeItemContent>
             </ResumeItem>
