@@ -14,21 +14,30 @@ import {
 } from "matter-js";
 import { decomp } from "poly-decomp-es";
 import { onCleanup, onMount, createEffect } from "solid-js";
-import paths from "./bodies";
+import createPaths from "./bodies";
 import styles from "./style.module.css";
 import { bottom } from "./vertices";
 
 Common.setDecomp(decomp);
 
-const CANVAS_WIDTH = 256;
-const CANVAS_HEIGHT = 410;
-
-export default function MatterLogoImage(props: { run: boolean }) {
+export default function MatterLogoImage(props: {
+  run: boolean;
+  height: number;
+  logoPosition: { x: number; y: number };
+  width: number;
+}) {
   let scene: HTMLDivElement;
   const engine = Engine.create();
   const runner = Runner.create();
 
   onMount(() => {
+    const CANVAS_WIDTH = props.width;
+    const CANVAS_HEIGHT = props.height;
+
+    const { x: logoX, y: logoY } = props.logoPosition;
+
+    const paths = createPaths(logoX, logoY);
+
     const render = Render.create({
       element: scene,
       engine: engine,
@@ -40,12 +49,12 @@ export default function MatterLogoImage(props: { run: boolean }) {
       },
     });
 
-    paths.map(({ vertices, fill, name }) => {
+    paths.map(({ vertices, fill }) => {
       const { x, y } = Vertices.centre(vertices);
 
       const body = Body.create({
         vertices: vertices,
-        position: { x: x, y: y },
+        position: { x, y },
         // inertia: Infinity,
         frictionAir: 0.00001,
         density: 0.04,
@@ -99,7 +108,7 @@ export default function MatterLogoImage(props: { run: boolean }) {
     <div
       ref={(element) => (scene = element)}
       id="logo"
-      class={styles.LogoImage}
+      class={styles.MatterLogoImage}
     ></div>
   );
 }

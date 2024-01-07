@@ -1,10 +1,6 @@
 import { ParentComponent } from "solid-js";
 import * as styles from "./Content.module.css";
 
-export const Header: ParentComponent = (props) => (
-  <header class={styles.Header} {...props} />
-);
-
 export const Logo: ParentComponent = (props) => (
   <div class={styles.Logo} {...props} />
 );

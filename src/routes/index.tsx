@@ -1,12 +1,5 @@
 import { Page } from "../components/Page/Page";
-import {
-  ContactButton,
-  Introduction,
-  Logo,
-  Header,
-  SectionContent,
-  LogoTitle,
-} from "../components/Content/Content";
+import { ContactButton, SectionContent } from "../components/Content/Content";
 import { Availability } from "../components/Availability/Availability";
 import {
   Resume,
@@ -19,8 +12,8 @@ import {
   ResumeSection,
   ResumeTitle,
 } from "../components/Resume/Resume";
-import { Greeting } from "../components/Greeting/Greeting";
-import LogoImage from "~/components/LogoImage";
+import Header from "../components/Header";
+import { Greeting } from "~/components/Greeting/Greeting";
 
 export default function Home() {
   return (
@@ -30,22 +23,15 @@ export default function Home() {
         <a href="mailto:contact@bruggen.dev">contact me</a>
       </Availability>
       <Header>
-        <Logo>
-          <LogoImage />
-          <LogoTitle>bruggen</LogoTitle>
-        </Logo>
-        <Introduction>
-          <Greeting></Greeting>
-          <p>
-            I’m Jesse Dijkstra, freelance fullstack product developer with a
-            specialisation in frontend and user experience design.
-          </p>
-          <ContactButton href="mailto:contact@bruggen.dev">
-            contact@bruggen.dev
-          </ContactButton>
-        </Introduction>
+        <Greeting />
+        <p>
+          I’m Jesse Dijkstra, freelance fullstack product developer with a
+          specialisation in frontend and user experience design.
+        </p>
+        <ContactButton href="mailto:contact@bruggen.dev">
+          contact@bruggen.dev
+        </ContactButton>
       </Header>
-
       <ResumeSection>
         <ResumeHeader>
           <ResumeTitle>Experience</ResumeTitle>

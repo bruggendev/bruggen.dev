@@ -4,20 +4,15 @@
   height: auto;
 }
 
-.LogoImage canvas {
+.hidden {
+  pointer-events: none;
+  display: hidden;
+}
+
+.svg {
   width: 100%;
-}
-
-svg.LogoImage {
- cursor: pointer;
-}
-
-.display {
-  display: block;
-}
-
-.hide {
-  display: none;
+  height: auto;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 1024px) {
