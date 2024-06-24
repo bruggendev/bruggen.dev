@@ -54,18 +54,20 @@ export default function Home() {
         <SectionContent>
           <Resume>
             <ResumeItem>
-              <ResumeItemHeader from="January 2024" to="Current" active>
+              <ResumeItemHeader from="January 2024" to="August 2024" active>
                 <strong>Fullstack Developer (Freelance)</strong>{" "}
-                <strong>Non-Disclosure Agreement</strong>
+                <strong>Treams</strong>
               </ResumeItemHeader>
               <ResumeItemContent>
                 <p>
-                  Fullstack developer for a scaleup that builds a performance
-                  management platform with over 50.000 users.
+                  Fullstack developer for a performance management scaleup with
+                  over 50.000 users.
                 </p>
                 <ResumeHilights>Technologies:</ResumeHilights>
                 <ul>
                   <li>React</li>
+                  <li>Nest.JS</li>
+                  <li>GraphQL</li>
                   <li>Typescript</li>
                 </ul>
               </ResumeItemContent>
@@ -86,7 +88,7 @@ export default function Home() {
                   <li>React</li>
                   <li>.NET Core</li>
                   <li>Vite</li>
-                  <li>SASS</li>
+                  <li>CSS Modules</li>
                   <li>Typescript</li>
                 </ul>
               </ResumeItemContent>
