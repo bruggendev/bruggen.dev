@@ -60,8 +60,9 @@ export const Introduction: ParentComponent = (props) => (
   <div class={styles.Introduction} {...props} />
 );
 
-export const ContactButton: ParentComponent<{ href: string }> = (props) => (
-  <a class={styles.ContactButton} {...props} />
+
+export const Button: ParentComponent<{ href: string }> = (props) => (
+  <a class={styles.Button} {...props} />
 );
 
 export const Section: ParentComponent = (props) => (

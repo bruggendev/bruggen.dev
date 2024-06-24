@@ -71,7 +71,7 @@
   }
 }
 
-.ContactButton {
+.Button {
   font-size: 16px;
   color: var(--text-color);
   border: 1px solid var(--text-color);
@@ -87,7 +87,7 @@
 }
 
 @media (min-width: 1024px) {
-  .ContactButton {
+  .Button {
     padding: 5px 12px;
     font-size: 20px;
   }

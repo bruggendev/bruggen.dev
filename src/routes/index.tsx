@@ -1,7 +1,7 @@
 import { Title } from "solid-start";
 import { Page } from "../components/Page/Page";
 import {
-  ContactButton,
+  Button,
   Introduction,
   Logo,
   Header,
@@ -38,9 +38,7 @@ export default function Home() {
             I’m Jesse Dijkstra, freelance fullstack product developer with a
             specialisation in frontend and user experience design.
           </p>
-          <ContactButton href="mailto:contact@bruggen.dev">
-            contact@bruggen.dev
-          </ContactButton>
+          <Button href="mailto:contact@bruggen.dev">contact@bruggen.dev</Button>
         </Introduction>
       </Header>
 
