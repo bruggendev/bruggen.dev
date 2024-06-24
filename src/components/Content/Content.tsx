@@ -1,5 +1,5 @@
 import { ParentComponent } from "solid-js";
-import * as styles from "./Content.module.css";
+import styles from "./Content.module.css";
 
 export const Logo: ParentComponent = (props) => (
   <div class={styles.Logo} {...props} />

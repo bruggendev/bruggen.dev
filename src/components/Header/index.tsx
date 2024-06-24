@@ -12,17 +12,24 @@ const Header = (props: { children: JSX.Element }) => {
   const [logoPosition, setLogoPosition] = createSignal<{
     x: number;
     y: number;
-  }>({ x: 0, y: 0 });
+    scaleX: number;
+    scaleY: number;
+  } | null>(null);
+
+  const handler = () => {
+    setBoundingRect(headerRef!.getBoundingClientRect());
+  };
 
   onMount(() => {
-    setBoundingRect(headerRef!.getBoundingClientRect());
+    handler();
+    window.addEventListener("resize", handler);
   });
 
   return (
     <header class={styles.Header} ref={(el) => (headerRef = el)}>
-      {boundingRect() && (
+      {logoPosition() && (
         <MatterLogoImage
-          logoPosition={logoPosition()!}
+          position={logoPosition()!}
           height={boundingRect()!.height}
           width={boundingRect()!.width}
           run={run()}
@@ -32,12 +39,14 @@ const Header = (props: { children: JSX.Element }) => {
         <LogoImage
           hidden={run()}
           onClick={() => setRun(true)}
-          onLogoPosition={({ x, y }) =>
+          onLogoPosition={(position) => {
             setLogoPosition({
-              x: x - boundingRect()!.left,
-              y: y - boundingRect()!.top,
-            })
-          }
+              x: position.x,
+              y: position.y,
+              scaleX: position.scaleX,
+              scaleY: position.scaleY,
+            });
+          }}
         />
         <LogoTitle>bruggen</LogoTitle>
       </Logo>

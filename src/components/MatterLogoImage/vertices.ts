@@ -24,6 +24,23 @@ export const rotate = (vertices: Vector[], angle: number, origin?: Vector) => {
   }));
 };
 
+export const scale = (vertices: Vector[], scaleX: number, scaleY: number) => {
+  const { x: originX, y: originY } = Matter.Vertices.centre(vertices);
+
+  const scaledShape = vertices.map(({ x, y }) => ({
+    x: originX + (x - originX) * scaleX,
+    y: originY + (y - originY) * scaleY,
+  }));
+
+  const left = Math.min(...scaledShape.map((v) => v.x));
+  const top = Math.min(...scaledShape.map((v) => v.y));
+
+  return scaledShape.map((v) => ({
+    x: v.x - left,
+    y: v.y - top,
+  }));
+};
+
 export const move = (vertices: Vector[], x: number, y: number) => {
   return vertices.map((v) => ({ x: v.x + x, y: v.y + y }));
 };

@@ -144,8 +144,4 @@ const paths = [
   bottomSquare,
 ];
 
-export default function createPaths(x: number, y: number) {
-  return paths.map((path) => {
-    return { ...path, vertices: move(path.vertices, x, y) };
-  });
-}
+export default paths;

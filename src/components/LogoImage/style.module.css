@@ -6,7 +6,7 @@
 
 .hidden {
   pointer-events: none;
-  display: hidden;
+  opacity: 0;
 }
 
 .svg {

@@ -48,6 +48,7 @@
 .ContactButton {
   font-size: 16px;
   color: var(--text-color);
+  background-color: white;
   border: 1px solid var(--text-color);
   border-radius: 5px;
   padding: 3px 10px;

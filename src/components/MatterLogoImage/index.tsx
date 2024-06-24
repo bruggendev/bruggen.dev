@@ -12,33 +12,44 @@ import {
   Runner,
   Vertices,
 } from "matter-js";
+
+import { setSize } from "./Render";
+
 import { decomp } from "poly-decomp-es";
 import { onCleanup, onMount, createEffect } from "solid-js";
-import createPaths from "./bodies";
+import paths from "./bodies";
 import styles from "./style.module.css";
-import { bottom } from "./vertices";
 
 Common.setDecomp(decomp);
 
 export default function MatterLogoImage(props: {
   run: boolean;
   height: number;
-  logoPosition: { x: number; y: number };
+  position: {
+    x: number;
+    y: number;
+    scaleX: number;
+    scaleY: number;
+  };
   width: number;
 }) {
   let scene: HTMLDivElement;
+  let render: Render;
+
   const engine = Engine.create();
   const runner = Runner.create();
+  const logo = Composite.create();
+  const floor = Composite.create();
+
+  const resizeHandler = () => {
+    setSize(render, props.width, props.height);
+  };
 
   onMount(() => {
     const CANVAS_WIDTH = props.width;
     const CANVAS_HEIGHT = props.height;
 
-    const { x: logoX, y: logoY } = props.logoPosition;
-
-    const paths = createPaths(logoX, logoY);
-
-    const render = Render.create({
+    render = Render.create({
       element: scene,
       engine: engine,
       options: {
@@ -49,46 +60,39 @@ export default function MatterLogoImage(props: {
       },
     });
 
-    paths.map(({ vertices, fill }) => {
-      const { x, y } = Vertices.centre(vertices);
+    Composite.add(
+      logo,
+      paths.map(({ vertices, fill, name }) => {
+        const { x, y } = Vertices.centre(vertices);
 
-      const body = Body.create({
-        vertices: vertices,
-        position: { x, y },
-        // inertia: Infinity,
-        frictionAir: 0.00001,
-        density: 0.04,
-        render: {
-          strokeStyle: "#fff",
-          fillStyle: fill,
-          lineWidth: 0,
-        },
-      });
+        const body = Body.create({
+          label: name,
+          vertices: vertices,
+          position: { x, y },
+          render: {
+            strokeStyle: "#fff",
+            fillStyle: fill,
+            lineWidth: 0,
+          },
+        });
 
-      Composite.add(engine.world, body);
-
-      return body;
-    });
-
-    const floor = Bodies.rectangle(
-      CANVAS_WIDTH / 2,
-      paths
-        .flatMap(({ vertices }) => bottom(vertices))
-        .reduce((a, b) => Math.max(a, b)) + 5,
-
-      CANVAS_WIDTH,
-      10,
-      {
-        isStatic: true,
-        render: {
-          fillStyle: "#fff",
-        },
-      }
+        return body;
+      })
     );
 
-    Composite.add(engine.world, floor);
+    Composite.add(
+      floor,
+      Bodies.rectangle(0, 0, CANVAS_WIDTH, 10, {
+        isStatic: true,
+        render: {
+          fillStyle: "transparent",
+          lineWidth: 0,
+        },
+      })
+    );
 
-    // run the engine
+    Composite.add(engine.world, [logo, floor]);
+
     Render.run(render);
 
     onCleanup(() => {
@@ -96,19 +100,51 @@ export default function MatterLogoImage(props: {
       Render.stop(render);
       Engine.clear(engine);
     });
+
+    window.addEventListener("resize", resizeHandler);
+  });
+
+  onCleanup(() => {
+    window.removeEventListener("resize", resizeHandler);
   });
 
   createEffect(() => {
     if (props.run) {
       Runner.run(runner, engine);
     }
-  }, [props.run]);
+  });
+
+  createEffect(() => {
+    const { x, y, scaleX, scaleY } = props.position;
+
+    const targetLogoX = x - (scene.getBoundingClientRect().x + window.scrollX);
+    const targetLogoY = y - (scene.getBoundingClientRect().y + window.scrollY);
+
+    console.log(props.width, props.height);
+
+    setSize(render, props.width, props.height);
+
+    Composite.scale(logo, scaleX, scaleY, { x: 0, y: 0 });
+
+    Composite.allBodies(logo).forEach((body) => {
+      const { vertices } = paths.find(({ name }) => name === body.label)!;
+      const { x, y } = Vertices.centre(vertices);
+
+      Body.setPosition(body, { x: x + targetLogoX, y: y + targetLogoY });
+    });
+
+    Composite.allBodies(floor).forEach((body) => {
+      Body.setPosition(body, {
+        x: scene.getBoundingClientRect().width / 2,
+        y:
+          logo.bodies
+            .flatMap((body) => body.bounds.max.y)
+            .reduce((a, b) => Math.max(a, b)) + 5,
+      });
+    });
+  });
 
   return (
-    <div
-      ref={(element) => (scene = element)}
-      id="logo"
-      class={styles.MatterLogoImage}
-    ></div>
+    <div ref={(element) => (scene = element)} class={styles.MatterLogoImage} />
   );
 }

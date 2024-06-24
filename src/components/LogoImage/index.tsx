@@ -1,17 +1,39 @@
 import { onMount } from "solid-js";
 import styles from "./style.module.css";
 
+type Position = {
+  x: number;
+  y: number;
+  scaleX: number;
+  scaleY: number;
+};
+
 type LogoImageProps = {
-  onLogoPosition: (position: DOMRect) => void;
+  onLogoPosition: (position: Position) => void;
   onClick: (event: MouseEvent) => void;
   hidden: boolean;
 };
 
+const LOGO_WIDTH = 256;
+const LOGO_HEIGHT = 410;
+
 export default function LogoImage(props: LogoImageProps) {
   let svgRef: SVGElement | undefined = undefined;
 
+  const handler = () => {
+    const boundingRect = svgRef!.getBoundingClientRect();
+
+    props.onLogoPosition({
+      x: boundingRect.x + window.scrollX,
+      y: boundingRect.y + window.scrollY,
+      scaleX: boundingRect.width / LOGO_WIDTH,
+      scaleY: boundingRect.height / LOGO_HEIGHT,
+    });
+  };
+
   onMount(() => {
-    props.onLogoPosition(svgRef!.getBoundingClientRect());
+    window.addEventListener("resize", handler);
+    handler();
   });
 
   return (
@@ -25,9 +47,9 @@ export default function LogoImage(props: LogoImageProps) {
       <svg
         class={styles.svg}
         ref={(el) => (svgRef = el)}
-        width="256"
-        height="410"
-        viewBox="0 0 256 410"
+        width={LOGO_WIDTH}
+        height={LOGO_HEIGHT}
+        viewBox={`0 0 ${LOGO_WIDTH} ${LOGO_HEIGHT}`}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
