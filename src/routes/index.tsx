@@ -71,7 +71,7 @@ export default function Home() {
               </ResumeItemContent>
             </ResumeItem>
             <ResumeItem>
-              <ResumeItemHeader from="April 2023" to="Current" active>
+              <ResumeItemHeader from="August 2023" to="Current" active>
                 <strong>Fullstack Developer (Freelance)</strong> at{" "}
                 <strong>UMC Utrecht</strong>
               </ResumeItemHeader>
