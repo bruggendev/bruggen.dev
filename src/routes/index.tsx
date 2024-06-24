@@ -54,7 +54,7 @@ export default function Home() {
         <SectionContent>
           <Resume>
             <ResumeItem>
-              <ResumeItemHeader from="January 2024" to="Current">
+              <ResumeItemHeader from="January 2024" to="Current" active>
                 <strong>Fullstack Developer (Freelance)</strong>{" "}
                 <strong>Non-Disclosure Agreement</strong>
               </ResumeItemHeader>
@@ -71,7 +71,7 @@ export default function Home() {
               </ResumeItemContent>
             </ResumeItem>
             <ResumeItem>
-              <ResumeItemHeader from="April 2023" to="Current">
+              <ResumeItemHeader from="April 2023" to="Current" active>
                 <strong>Fullstack Developer (Freelance)</strong> at{" "}
                 <strong>UMC Utrecht</strong>
               </ResumeItemHeader>

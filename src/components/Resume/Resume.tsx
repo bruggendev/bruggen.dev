@@ -1,5 +1,6 @@
-import { ParentComponent } from "solid-js";
+import { ParentComponent, ParentProps, PropsWithChildren } from "solid-js";
 import * as styles from "./Resume.module.css";
+import { className } from "solid-js/web";
 
 export const Resume: ParentComponent = (props) => (
   <dl {...props} class={styles.Resume} />
@@ -26,8 +27,9 @@ export const ResumeItemContent: ParentComponent = (props) => (
 export const ResumeItemHeader: ParentComponent<{
   from: string;
   to: string;
-}> = ({ from, to, children }) => (
-  <dt class={styles.ResumeItemHeader}>
+  active?: boolean;
+}> = ({ from, to, children, active }) => (
+  <dt classList={{ [styles.ResumeItemHeader]: true, [styles.active]: active }}>
     <ResumeItemHeaderPeriod>
       <time>{from}</time> - <time>{to}</time>
     </ResumeItemHeaderPeriod>

@@ -64,7 +64,8 @@
     border-radius: 34px;
   }
 }
-.ResumeItemHeader:first-of-type::before {
+
+.active::before {
   box-shadow: inset 0px 0px 0px 5px var(--background-color);
   background-color: var(--text-color);
 }
