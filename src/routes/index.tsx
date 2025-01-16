@@ -52,6 +52,27 @@ export default function Home() {
         <SectionContent>
           <Resume>
             <ResumeItem>
+              <ResumeItemHeader from="January 2025" to="Current" active>
+                <strong>Founding Developer </strong> at <strong>Osedu</strong>
+              </ResumeItemHeader>
+              <ResumeItemContent>
+                <p>
+                  Founder and fullstack developer for an open learning platform
+                  for primary and secondary education.
+                </p>
+                <ResumeHilights>Technologies:</ResumeHilights>
+                <ul>
+                  <li>React</li>
+                  <li>Python</li>
+                  <li>NextJS</li>
+                  <li>Typescript</li>
+                  <li>Tailwind</li>
+                  <li>Terraform</li>
+                  <li>DevOps</li>
+                </ul>
+              </ResumeItemContent>
+            </ResumeItem>
+            <ResumeItem>
               <ResumeItemHeader from="January 2024" to="August 2024" active>
                 <strong>Fullstack Developer (Freelance)</strong> at{" "}
                 <strong>Treams</strong>
