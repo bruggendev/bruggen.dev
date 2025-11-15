@@ -1,2 +1,2 @@
-/// <reference types="solid-start/env" />
+/// <reference types="@solidjs/start/env" />
 declare module "*.module.css";

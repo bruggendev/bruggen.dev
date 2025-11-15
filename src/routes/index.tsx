@@ -35,7 +35,7 @@ export default function Home() {
         <Introduction>
           <Greeting></Greeting>
           <p>
-            I’m Jesse Dijkstra, freelance fullstack product developer with a
+            I’m Jesse Dijkstra, fullstack product developer with a
             specialisation in frontend and user experience design.
           </p>
           <Button href="mailto:contact@bruggen.dev">contact@bruggen.dev</Button>
@@ -45,19 +45,17 @@ export default function Home() {
       <ResumeSection>
         <ResumeHeader>
           <ResumeTitle>Experience</ResumeTitle>
-          <ResumeDownload href="/downloads/Jesse Dijkstra - Fullstack Developer - Resume.pdf">
-            Download resume
-          </ResumeDownload>
         </ResumeHeader>
         <SectionContent>
           <Resume>
             <ResumeItem>
-              <ResumeItemHeader from="January 2025" to="Current" active>
-                <strong>Founding Developer </strong> at <strong>Osedu</strong>
+              <ResumeItemHeader from="May 2025" to="Current" active>
+                <strong>Founding Developer </strong> at <strong>NEON</strong>{" "}
+                and the <strong>Open Education Foundation</strong>
               </ResumeItemHeader>
               <ResumeItemContent>
                 <p>
-                  Founder and fullstack developer for an open learning platform
+                  Founding and fullstack developer for an open learning platform
                   for primary and secondary education.
                 </p>
                 <ResumeHilights>Technologies:</ResumeHilights>
@@ -69,6 +67,7 @@ export default function Home() {
                   <li>Tailwind</li>
                   <li>Terraform</li>
                   <li>DevOps</li>
+                  <li>Yjs</li>
                 </ul>
               </ResumeItemContent>
             </ResumeItem>
@@ -92,7 +91,7 @@ export default function Home() {
               </ResumeItemContent>
             </ResumeItem>
             <ResumeItem>
-              <ResumeItemHeader from="August 2023" to="Current" active>
+              <ResumeItemHeader from="August 2023" to="March 2025">
                 <strong>Fullstack Developer (Freelance)</strong> at{" "}
                 <strong>UMC Utrecht</strong>
               </ResumeItemHeader>
@@ -242,14 +241,14 @@ export default function Home() {
 
             <ResumeItem>
               <ResumeItemHeader from="February 2013" to="August 2016">
-                <strong>Lead Frontend Developer</strong> at{" "}
+                <strong>Founding and Lead Frontend Developer</strong> at{" "}
                 <strong>Blendle</strong>
               </ResumeItemHeader>
               <ResumeItemContent>
                 <p>
-                  First employee and core contributor on various projects.
-                  Involved in conceptualization of key features, UX, frontend
-                  and backend.
+                  Founding developer, first employee and core contributor on
+                  various projects. Involved in conceptualization of key
+                  features, UX, frontend and backend.
                 </p>
                 <p>
                   Core developer of two of our flagship projects from the ground
